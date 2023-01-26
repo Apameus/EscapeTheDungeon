@@ -1,6 +1,7 @@
 package graphics;
 
-import javax.swing.Renderer;
+import apameus.game.engine.input.Input;
+
 import java.util.function.Consumer;
 
 public interface Window {
@@ -8,6 +9,8 @@ public interface Window {
     int getWidth();
 
     int getHeight();
+
+    Input getInput();
 
     void render(Consumer<Renderer> action);
 }
