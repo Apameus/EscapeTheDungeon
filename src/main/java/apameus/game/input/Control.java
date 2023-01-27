@@ -1,4 +1,4 @@
-package apameus.game.engine.input;
+package apameus.game.input;
 
 public enum Control {
     MOVE_UP,

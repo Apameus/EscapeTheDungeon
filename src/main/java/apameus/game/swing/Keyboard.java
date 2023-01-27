@@ -1,7 +1,7 @@
-package swing;
+package apameus.game.swing;
 
-import apameus.game.engine.input.Control;
-import apameus.game.engine.input.Input;
+import apameus.game.input.Control;
+import apameus.game.input.Input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

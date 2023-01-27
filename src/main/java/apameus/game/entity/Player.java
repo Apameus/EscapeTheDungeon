@@ -1,9 +1,9 @@
-package apameus.game.engine.entity;
+package apameus.game.entity;
 
 import apameus.game.engine.GameEngine;
-import apameus.game.engine.input.Control;
-import apameus.game.engine.input.Input;
-import graphics.Renderer;
+import apameus.game.input.Control;
+import apameus.game.input.Input;
+import apameus.game.graphics.Renderer;
 
 import java.awt.*;
 

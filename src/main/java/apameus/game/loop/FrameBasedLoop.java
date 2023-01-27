@@ -1,9 +1,8 @@
-package apameus.game.engine.loop;
+package apameus.game.loop;
 
 import apameus.game.engine.GameLoop;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.function.LongConsumer;
 
 public class FrameBasedLoop implements GameLoop {

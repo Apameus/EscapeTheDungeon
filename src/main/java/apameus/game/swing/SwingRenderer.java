@@ -1,8 +1,7 @@
-package swing;
+package apameus.game.swing;
 
-import graphics.Renderer;
+import apameus.game.graphics.Renderer;
 
-import javax.swing.*;
 import java.awt.*;
 
 public record SwingRenderer(Graphics2D graphics) implements Renderer {
@@ -17,5 +16,10 @@ public record SwingRenderer(Graphics2D graphics) implements Renderer {
     public Renderer fillRect(int x, int y, int width, int height) {
         graphics.fillRect(x, y, width, height);
         return this;
+    }
+
+    @Override
+    public void clear(int x, int y, int width, int height) {
+        graphics.clearRect(x,y, width, height);
     }
 }

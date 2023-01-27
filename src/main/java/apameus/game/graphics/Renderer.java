@@ -1,4 +1,4 @@
-package graphics;
+package apameus.game.graphics;
 
 import java.awt.*;
 
@@ -9,5 +9,5 @@ public interface Renderer {
     Renderer fillRect(int x, int y, int width, int height);
 
 
-
+    void clear(int x, int y, int width, int height);
 }

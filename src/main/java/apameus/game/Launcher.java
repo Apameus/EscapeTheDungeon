@@ -1,8 +1,9 @@
-package apameus.game.engine;
+package apameus.game;
 
-import apameus.game.engine.loop.FrameBasedLoop;
-import graphics.Window;
-import swing.SwingWindow;
+import apameus.game.engine.GameEngine;
+import apameus.game.loop.FrameBasedLoop;
+import apameus.game.graphics.Window;
+import apameus.game.swing.SwingWindow;
 
 public class Launcher {
 

@@ -1,12 +1,11 @@
-package swing;
+package apameus.game.swing;
 
-import apameus.game.engine.input.Input;
-import graphics.Renderer;
-import graphics.Window;
+import apameus.game.input.Input;
+import apameus.game.graphics.Renderer;
+import apameus.game.graphics.Window;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.util.function.Consumer;
 

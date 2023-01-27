@@ -1,7 +1,7 @@
-package apameus.game.engine.entity;
+package apameus.game.entity;
 
 import apameus.game.engine.GameEngine;
-import graphics.Renderer;
+import apameus.game.graphics.Renderer;
 
 public abstract class Entity {
 

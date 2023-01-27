@@ -1,6 +1,6 @@
-package graphics;
+package apameus.game.graphics;
 
-import apameus.game.engine.input.Input;
+import apameus.game.input.Input;
 
 import java.util.function.Consumer;
 

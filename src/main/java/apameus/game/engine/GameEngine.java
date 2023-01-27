@@ -1,22 +1,29 @@
 package apameus.game.engine;
 
-import apameus.game.engine.entity.Player;
-import apameus.game.engine.input.Control;
-import apameus.game.engine.input.Input;
-import graphics.Window;
+import apameus.game.entity.Player;
+import apameus.game.input.Input;
+import apameus.game.graphics.Window;
+import apameus.game.world.SimpleWorldGenerator;
+import apameus.game.world.WorldData;
+import apameus.game.world.WorldGenerator;
 
 
 import java.awt.*;
 
 public final class GameEngine {
 
+    private Player player;
     private final Window window;
     private final GameLoop loop;
-    private Player player;
+    private final WorldRenderer worldRenderer;
 
     public GameEngine(GameLoop.Factory factory, Window window) {
        this.loop  = factory.create(this::update, this::render);
         this.window = window;
+
+        WorldGenerator generator = new SimpleWorldGenerator();
+        WorldData data = generator.generate();
+        worldRenderer = new WorldRenderer(window, data);
     }
 
     public void start(){
@@ -34,9 +41,9 @@ public final class GameEngine {
 
     public void render(long now){
         window.render(renderer -> {
-            renderer.setColor(Color.black)
-                            .fillRect(0,0, window.getWidth(), window.getHeight());
+            renderer.clear(0, 0, window.getWidth(), window.getHeight());
 
+            worldRenderer.renderer(renderer);
             player.render(renderer);
         });
     }
