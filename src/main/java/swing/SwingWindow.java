@@ -21,7 +21,7 @@ public final class SwingWindow implements Window {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         keyboard = new Keyboard();
-         frame.addKeyListener(keyboard);
+        frame.addKeyListener(keyboard);
 
         canvas = new Canvas();
         JPanel panel = new JPanel(new BorderLayout());

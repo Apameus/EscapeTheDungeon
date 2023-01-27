@@ -7,22 +7,21 @@ import java.time.LocalDateTime;
 import java.util.function.LongConsumer;
 
 public class FrameBasedLoop implements GameLoop {
+
     public FrameBasedLoop(LongConsumer update, LongConsumer render) {
         this.update = update;
         this.render = render;
     }
 
+    private static final long NANOS_PER_SECOND = Duration.ofSeconds(1).toNanos();
 
-    private Boolean shouldRun;
-    private int fps;
+    private static final int FRAMES_PER_SECOND = 60;
 
-    private final long NANOS_PER_SECOND = Duration.ofSeconds(1).toNanos();
-
-    private final int FRAMES_PER_SECOND = 60;
-
-    private final double UPDATE_INTERVAL = (double) NANOS_PER_SECOND / FRAMES_PER_SECOND;
+    private static final double UPDATE_INTERVAL = (double) NANOS_PER_SECOND / FRAMES_PER_SECOND;
 
     private final LongConsumer update, render;
+    private Boolean shouldRun;
+    private int fps;
 
 
     @Override
