@@ -1,5 +1,6 @@
 package apameus.game.engine;
 
+import apameus.game.graphics.Camera;
 import apameus.game.graphics.Renderer;
 import apameus.game.graphics.Window;
 import apameus.game.world.Tile;
@@ -15,22 +16,26 @@ public final class WorldRenderer {
         this.world = data;
     }
 
-    public void renderer(Renderer renderer){
+    public void renderer(Renderer renderer, Camera camera){
         byte[][] map = world.map();
 
-        int screenY = 0;
+        int worldY = 0;
         for (byte[] row : map) {
-            int screenX = 0;
+            int worldX = 0;
+
+            int screenY = camera.screenY(worldY);
             for (byte val : row) {
                 Tile tile = Tile.of(val);
 
-                renderer.setColor(tile.getColor())
-                        .fillRect(screenX,screenY, world.tileWidth(), world.tileHeight());
+                int screenX = camera.screenX(worldX);
 
-                screenX += world.tileWidth();
+                renderer.setColor(tile.getColor())
+                        .fillRect(screenX, screenY, world.tileWidth(), world.tileHeight());
+
+                worldX += world.tileWidth();
             }
 
-            screenY += world.tileHeight();
+            worldY += world.tileHeight();
         }
     }
 }

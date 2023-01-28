@@ -1,5 +1,7 @@
 package apameus.game.swing;
 
+import apameus.game.entity.Player;
+import apameus.game.graphics.Camera;
 import apameus.game.input.Input;
 import apameus.game.graphics.Renderer;
 import apameus.game.graphics.Window;
@@ -48,6 +50,11 @@ public final class SwingWindow implements Window {
     @Override
     public Input getInput() {
         return keyboard;
+    }
+
+    @Override
+    public Camera createCamera(Player player) {
+        return new SwingCamera(player, this);
     }
 
     @Override

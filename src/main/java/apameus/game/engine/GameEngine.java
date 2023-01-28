@@ -1,6 +1,7 @@
 package apameus.game.engine;
 
 import apameus.game.entity.Player;
+import apameus.game.graphics.Camera;
 import apameus.game.input.Input;
 import apameus.game.graphics.Window;
 import apameus.game.world.SimpleWorldGenerator;
@@ -13,6 +14,7 @@ import java.awt.*;
 public final class GameEngine {
 
     private Player player;
+    private Camera camera;
     private final Window window;
     private final GameLoop loop;
     private final WorldRenderer worldRenderer;
@@ -28,7 +30,13 @@ public final class GameEngine {
 
     public void start(){
         player = new Player();
+
+        camera = window.createCamera(player);
         loop.start();
+    }
+
+    public Camera getCamera() {
+        return camera;
     }
 
     public Input getInput(){
@@ -43,8 +51,8 @@ public final class GameEngine {
         window.render(renderer -> {
             renderer.clear(0, 0, window.getWidth(), window.getHeight());
 
-            worldRenderer.renderer(renderer);
-            player.render(renderer);
+            worldRenderer.renderer(renderer, camera);
+            player.render(renderer, camera);
         });
     }
 }
